@@ -8,6 +8,7 @@ set(RV_SRC src/RandomVariable.cpp
 			src/Lognormal.cpp
 			src/Weighted.cpp
 			src/Unweighted.cpp
+			src/RandomVariableContainer.cpp
 			src/Translation.cpp
 )
 
@@ -19,6 +20,7 @@ set(RV_INC 	inc/RandomVariable.h
 			inc/Lognormal.h
 			inc/Weighted.h
 			inc/Unweighted.h
+			inc/RandomVariableContainer.h
 			inc/Translation.h
 )
 

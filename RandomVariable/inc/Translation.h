@@ -16,8 +16,11 @@
 #ifndef RV_TRANSLATION_H
 #define RV_TRANSLATION_H
 
-#include "Parametric.h"
-#include "NonParametric.h"
+#include "Normal.h"
+#include "Lognormal.h"
+#include "Unweighted.h"
+#include "Weighted.h"
+#include "RandomVariableContainer.h"
 
 namespace Translation {
 	// *------------------------------* 
@@ -40,5 +43,29 @@ namespace Translation {
 	 */
 	template<typename D>
 	D fit(const NonParametric* np);
+
+	// *------------------------------* 
+	// |     	  SAMPLING            |
+	// *------------------------------*
+
+	/** @brief		Generates n samples from multiple parametric distributions using the Monte Carlo method and calls the 
+	 *				RandomVariableContainer member function pointer passing in sampled values
+	 *
+	 *	@param 	n	Number of samples generated
+	 *	@param	rvc	Pointer to a RandomVariableContainer object
+	 *	@returns 	A NonParametric object (type T) 
+	 */
+	template<typename T>
+	T sampleMC(const RandomVariableContainer* rvc, const unsigned int n);
+
+	/** @brief		Generates n samples from  multiple parametric distributions using the Latin Hypercube method and calls the 
+	 *				RandomVariableContainer member function pointer passing in sampled values
+	 *
+	 *	@param 	n	Number of samples generated
+	 *	@param	rvc	Pointer to a RandomVariableContainer object
+	 *	@returns 	A NonParametric object (type T) 
+	 */
+	template<typename T>
+	T sampleLH(const RandomVariableContainer* rvc, const unsigned int n);
 }
 #endif //RV_TRANSLATION_H
