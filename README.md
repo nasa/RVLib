@@ -21,11 +21,14 @@ The RandomVariable Library is an C++ open source tool for representing statistic
 
 ## Structure
 ![RV Hierarchy](images/Hierarchy.png)
-  The abstract RandomVariable class is inherited by the Parametric and NonParametric classes (also abstract). Each distribution type is inherited by named distributions (Lognormal, Exponential, etc.) and data set representations (Weighted, Unweighted, etc.). The RandomVariableContainer has a composition relationship with RandomVariable objects as it contains numerous. The statistics struct is used by the RandomVariable object (and it's descendants). The Translation namespace uses the RandomVariable and it's derivatives.
+  The abstract RandomVariable class is inherited by the Parametric and NonParametric classes (also abstract). Each distribution type is inherited by named distributions (Lognormal, Exponential, etc.) and data set representations (Weighted, Unweighted, etc.). The statistics struct is used by the RandomVariable object (and it's descendants). The Translation namespace uses the RandomVariable and it's derivatives.
+
 ## Using
+
 ### REQUIREMENTS
 * Cmake (https://cmake.org)
 * Compiler capable of building C++11
+
 ### BUILD
 To start build properly enter RandomVariableProject directory then change into the build directory.
 
@@ -43,8 +46,13 @@ If cmake is not able to locate your gcc/g++ compiler, you can use the command
 `$ cmake -D CMAKE_C_COMPILER=[location of gcc] -D CMAKE_CXX_COMPILER=[location of gcc] ..`
 
 Next run make from the build directory or make -C build from RandomVariableProject.
-### RUN
-The executable is in the build directory under the name RandomVariable. The main function is RandomVariable/src/TEST_FILE.cpp and is commented out by default.
+
+### USE
+Random Variable Library is built into a library in the lib directory. This library can then be linked with other software products to be used.
+
+## Examples
+There are a number of examples in the Examples directory.
+
 ## Semantics
 * INCLUDES
 Includes are placed in each file dependent on them, unless an included file already contains the necessary information.
@@ -67,7 +75,7 @@ Uncertainty representation can be used in an almost infinite number of fields fr
 If you have questions, please open an issue on github
 
 ## Contributing
-All contributions are welcome! If you are having problems with the plugin, please open an issue on GitHub. If you would like to contribute directly, please feel free to open a pull request against the "develop" branch. Pull requests will be evaluated and integrated into the next official release.
+All contributions are welcome! If you are having problems with the plugin, please open an issue on GitHub. If you would like to contribute directly, please feel free to open a pull request against the "dev" branch. Pull requests will be evaluated and integrated into the next official release.
 
 ## Next Steps
 Software developers expanding this library should improve the coupling between a select few distribution classes. Some shortcuts were taken where privacy and was not a concern and checking was unnecessary. If future contributors aim to make the software more secure and abstracted, they should decrease further direct access to the underlying data structure (overload index operator) and class private variables. Adding more distributions and data set representations should be trivial if they follow a similar format as the current objects. The process for setting up a calculation involving multiple RandomVariables could be make simpler.
